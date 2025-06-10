@@ -125,6 +125,21 @@
             </div>
         </section>
 
+        <!-- MERGED SECTION -->
+        <section class="fade-in-section">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tighter">Our Pedagogical Framework</h2>
+                <p class="mt-4 text-xl text-slate-600 max-w-3xl mx-auto">Our lab's hands-on activities are guided by a robust pedagogical framework for AI literacy. This framework details the core principles, learning objectives, and role-based paths for developing true AI fluency in TCM.</p>
+            </div>
+            <div class="mt-12 flex justify-center">
+                <!-- IMPORTANT: Replace the href="#" with the link to your AI Literacy Paths page -->
+                <a href="#" target="_blank" class="inline-flex items-center justify-center gap-2 rounded-full bg-indigo-600 px-8 py-4 text-lg font-semibold text-white shadow-lg hover:bg-indigo-500 transition-all">
+                    <i data-lucide="graduation-cap" class="h-6 w-6"></i>
+                    Explore the AI Literacy Paths
+                </a>
+            </div>
+        </section>
+
         <!-- Activities & Resources Section -->
         <section id="resources" class="fade-in-section">
             <div class="text-center">
@@ -132,7 +147,6 @@
                 <p class="mt-4 text-xl text-slate-600">Explore our curated materials and session outcomes. <span class="ml-2 text-lg font-normal text-slate-500">(available to VUIM members)</span></p>
             </div>
             <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
-                <!-- IMPORTANT: Replace the href="#" with your actual Google Drive links -->
                 <a href="https://docs.google.com/presentation/d/1UhUfCAmJEyq12WHs5q5Liy_fX0vCbiqvyHBBsOSlSm8/edit?usp=sharing" target="_blank" class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-xl hover:-translate-y-1 transition-all group">
                     <i data-lucide="file-text" class="w-8 h-8 text-indigo-600"></i>
                     <h3 class="mt-4 text-2xl font-semibold text-slate-900">Monthly Session Summaries</h3>
@@ -227,13 +241,13 @@
             threshold: 0.1,
             rootMargin: "0px 0px -100px 0px"
         };
-        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+        const appearOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
                 if (!entry.isIntersecting) {
                     return;
                 } else {
                     entry.target.classList.add('is-visible');
-                    appearOnScroll.unobserve(entry.target);
+                    observer.unobserve(entry.target);
                 }
             });
         }, appearOptions);
