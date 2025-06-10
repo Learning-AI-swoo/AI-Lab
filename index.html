@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,30 +20,33 @@
         /* Use Inter as the default font */
         body {
             font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
-        /* Simple animation for section headers */
-        .section-header {
-            animation: fadeIn 1s ease-in-out;
+        /* Animation for elements fading in on scroll */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-white text-slate-800">
 
     <!-- Header & Navigation -->
-    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
-        <nav class="mx-auto flex max-w-5xl items-center justify-between p-4">
-            <a href="#" class="flex items-center space-x-2">
+    <header class="bg-white/90 backdrop-blur-lg sticky top-0 z-50 border-b border-slate-200">
+        <nav class="mx-auto flex max-w-7xl items-center justify-between p-4 px-6 lg:px-8">
+            <a href="#" class="flex items-center space-x-3">
                 <div class="bg-indigo-600 p-2 rounded-lg">
-                    <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                 </div>
-                <span class="font-bold text-lg text-slate-900">VUIM AI Lab</span>
+                <span class="font-bold text-xl text-slate-900">VUIM AI Lab</span>
             </a>
-            <div class="hidden md:flex items-center space-x-6 text-sm font-medium text-slate-700">
+            <div class="hidden md:flex items-center space-x-8 text-base font-medium text-slate-700">
                 <a href="#about" class="hover:text-indigo-600 transition-colors">About</a>
                 <a href="#approach" class="hover:text-indigo-600 transition-colors">Approach</a>
                 <a href="#resources" class="hover:text-indigo-600 transition-colors">Resources</a>
@@ -54,130 +57,125 @@
     </header>
 
     <!-- Main Content -->
-    <main class="mx-auto max-w-5xl px-4 py-8 md:py-16 space-y-24">
+    <main class="mx-auto max-w-7xl px-6 lg:px-8 py-16 md:py-24 space-y-32 md:space-y-40">
 
         <!-- Hero Section -->
-        <section id="about" class="text-center">
-            <h1 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">Advancing AI Literacy in Integrative Medicine</h1>
-            <p class="mt-4 max-w-3xl mx-auto text-lg text-slate-600">
-                Founded in 2025, the VUIM AI Lab is a collaborative, peer-led initiative dedicated to building a community of confident AI experimenters among faculty and staff. We focus on practical application and shared discovery to enhance our work and student services.
+        <section id="about" class="text-center fade-in-section">
+            <h1 class="text-5xl md:text-7xl font-bold text-slate-900 tracking-tighter">Advancing AI Literacy in Integrative Medicine.</h1>
+            <p class="mt-6 max-w-4xl mx-auto text-xl text-slate-600">
+                Founded in 2025, the VUIM AI Lab is a collaborative, peer-led initiative building a community of confident AI experimenters. We focus on practical application and shared discovery to enhance our work and student services.
             </p>
         </section>
 
         <!-- Mission Section -->
-        <section class="bg-indigo-600 text-white rounded-2xl p-8 md:p-12 text-center">
-             <h2 class="text-3xl font-bold tracking-tight">Our Mission</h2>
-             <p class="mt-4 max-w-3xl mx-auto text-lg text-indigo-200">
-                To empower VUIM faculty and staff with the practical AI skills and collaborative support needed to enhance productivity, improve student service, and drive institutional innovation from the ground up.
+        <section class="bg-slate-900 text-white rounded-3xl p-10 md:p-16 text-center fade-in-section">
+             <h2 class="text-4xl md:text-5xl font-bold tracking-tighter">Our Mission</h2>
+             <p class="mt-6 max-w-4xl mx-auto text-xl text-slate-300">
+                To empower VUIM faculty and staff with the practical skills and collaborative support needed to enhance productivity, improve student service, and drive institutional innovation from the ground up.
              </p>
         </section>
 
         <!-- Approach Section -->
-        <section id="approach">
-            <div class="text-center section-header">
-                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Our Approach</h2>
-                <p class="mt-2 text-lg text-slate-600">Our lab is built on a people-first philosophy.</p>
+        <section id="approach" class="fade-in-section">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tighter">Our Approach</h2>
+                <p class="mt-4 text-xl text-slate-600">Our lab is built on a people-first philosophy.</p>
             </div>
-            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
                 <!-- Approach Card 1 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
                     <div class="flex items-center space-x-4">
                         <div class="bg-green-100 text-green-700 p-3 rounded-full">
-                            <i data-lucide="shield-check"></i>
+                            <i data-lucide="shield-check" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Psychological Safety</h3>
+                        <h3 class="text-2xl font-semibold text-slate-900">Psychological Safety</h3>
                     </div>
-                    <p class="mt-3 text-slate-600">All experience levels are welcome. We create a no-judgment zone where trying something new is a success and all questions are valued.</p>
+                    <p class="mt-4 text-lg text-slate-600">All experience levels are welcome. We create a no-judgment zone where trying something new is a success and all questions are valued.</p>
                 </div>
                 <!-- Approach Card 2 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
                     <div class="flex items-center space-x-4">
                         <div class="bg-sky-100 text-sky-700 p-3 rounded-full">
-                            <i data-lucide="users"></i>
+                            <i data-lucide="users" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Voluntary Participation</h3>
+                        <h3 class="text-2xl font-semibold text-slate-900">Voluntary Participation</h3>
                     </div>
-                    <p class="mt-3 text-slate-600">Attendance and engagement are always voluntary. We respect everyone's time, priorities, and bandwidth, ensuring a no-pressure environment.</p>
+                    <p class="mt-4 text-lg text-slate-600">Attendance and engagement are always voluntary. We respect everyone's time, priorities, and bandwidth, ensuring a no-pressure environment.</p>
                 </div>
                 <!-- Approach Card 3 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
                     <div class="flex items-center space-x-4">
                         <div class="bg-amber-100 text-amber-700 p-3 rounded-full">
-                            <i data-lucide="lightbulb"></i>
+                            <i data-lucide="lightbulb" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Peer-to-Peer Learning</h3>
+                        <h3 class="text-2xl font-semibold text-slate-900">Peer-to-Peer Learning</h3>
                     </div>
-                    <p class="mt-3 text-slate-600">We focus on collaborative problem-solving and sharing discoveries. Learning from each other's "jagged frontier" experiences is our curriculum.</p>
+                    <p class="mt-4 text-lg text-slate-600">We focus on collaborative problem-solving and sharing discoveries. Learning from each other's "jagged frontier" experiences is our curriculum.</p>
                 </div>
                 <!-- Approach Card 4 -->
-                <div class="bg-white p-6 rounded-xl border border-slate-200">
+                <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200">
                     <div class="flex items-center space-x-4">
                         <div class="bg-rose-100 text-rose-700 p-3 rounded-full">
-                            <i data-lucide="sprout"></i>
+                            <i data-lucide="sprout" class="w-7 h-7"></i>
                         </div>
-                        <h3 class="text-lg font-semibold text-slate-900">Sustainable Growth</h3>
+                        <h3 class="text-2xl font-semibold text-slate-900">Sustainable Growth</h3>
                     </div>
-                    <p class="mt-3 text-slate-600">We start small and grow organically. The lab expands only when the community asks for more, ensuring our initiatives are always relevant and desired.</p>
+                    <p class="mt-4 text-lg text-slate-600">We start small and grow organically. The lab expands only when the community asks for more, ensuring our initiatives are always relevant and desired.</p>
                 </div>
             </div>
         </section>
 
         <!-- Activities & Resources Section -->
-        <section id="resources">
-            <div class="text-center section-header">
-                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Activities & Resources</h2>
-                <p class="mt-2 text-lg text-slate-600">Explore our curated materials and session outcomes.</p>
+        <section id="resources" class="fade-in-section">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tighter">Activities & Resources</h2>
+                <p class="mt-4 text-xl text-slate-600">Explore our curated materials and session outcomes.</p>
             </div>
-            <div class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="mt-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8">
                 <!-- IMPORTANT: Replace the href="#" with your actual Google Drive links -->
-                <!-- Resource Card 1 -->
-                <a href="#" target="_blank" class="bg-white p-6 rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-lg transition-all group">
-                    <i data-lucide="file-text" class="text-indigo-600"></i>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">Monthly Session Summaries</h3>
-                    <p class="mt-1 text-slate-600">Key takeaways and discoveries from our monthly collaborative sessions.</p>
+                <a href="#" target="_blank" class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                    <i data-lucide="file-text" class="w-8 h-8 text-indigo-600"></i>
+                    <h3 class="mt-4 text-2xl font-semibold text-slate-900">Monthly Session Summaries</h3>
+                    <p class="mt-2 text-lg text-slate-600">Key takeaways and discoveries from our monthly collaborative sessions.</p>
                 </a>
-                <!-- Resource Card 2 -->
-                <a href="#" target="_blank" class="bg-white p-6 rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-lg transition-all group">
-                     <i data-lucide="case-sensitive" class="text-indigo-600"></i>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">Shared Use Case Examples</h3>
-                    <p class="mt-1 text-slate-600">Practical, real-world examples of how we're using AI in our daily work.</p>
+                <a href="#" target="_blank" class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                     <i data-lucide="case-sensitive" class="w-8 h-8 text-indigo-600"></i>
+                    <h3 class="mt-4 text-2xl font-semibold text-slate-900">Shared Use Case Examples</h3>
+                    <p class="mt-2 text-lg text-slate-600">Practical, real-world examples of how we're using AI in our daily work.</p>
                 </a>
-                <!-- Resource Card 3 -->
-                <a href="#" target="_blank" class="bg-white p-6 rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-lg transition-all group">
-                     <i data-lucide="wrench" class="text-indigo-600"></i>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">Recommended AI Tools</h3>
-                    <p class="mt-1 text-slate-600">A curated list of tools and guides that our members have found effective.</p>
+                <a href="#" target="_blank" class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                     <i data-lucide="wrench" class="w-8 h-8 text-indigo-600"></i>
+                    <h3 class="mt-4 text-2xl font-semibold text-slate-900">Recommended AI Tools</h3>
+                    <p class="mt-2 text-lg text-slate-600">A curated list of tools and guides that our members have found effective.</p>
                 </a>
-                <!-- Resource Card 4 -->
-                 <a href="#" target="_blank" class="bg-white p-6 rounded-xl border border-slate-200 hover:border-indigo-500 hover:shadow-lg transition-all group">
-                     <i data-lucide="book-marked" class="text-indigo-600"></i>
-                    <h3 class="mt-3 text-lg font-semibold text-slate-900">AI Literacy & Policy</h3>
-                    <p class="mt-1 text-slate-600">Frameworks and policies developed to guide responsible AI use at VUIM.</p>
+                <a href="#" target="_blank" class="bg-slate-50 p-8 rounded-2xl border border-slate-200 hover:border-indigo-500 hover:shadow-xl hover:-translate-y-1 transition-all group">
+                     <i data-lucide="book-marked" class="w-8 h-8 text-indigo-600"></i>
+                    <h3 class="mt-4 text-2xl font-semibold text-slate-900">AI Literacy & Policy</h3>
+                    <p class="mt-2 text-lg text-slate-600">Frameworks and policies developed to guide responsible AI use at VUIM.</p>
                 </a>
-                 <!-- Add more resource cards here if needed -->
             </div>
         </section>
         
         <!-- Impact Section -->
-        <section id="impact">
-            <div class="text-center section-header">
-                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Our Impact</h2>
-                <p class="mt-2 text-lg text-slate-600">This initiative is new, but we are actively tracking our progress.</p>
+        <section id="impact" class="fade-in-section">
+            <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tighter">Our Impact</h2>
+                <p class="mt-4 text-xl text-slate-600">This initiative is new, but we are actively tracking our progress.</p>
             </div>
-            <div class="mt-12 bg-white rounded-2xl p-8 md:p-12 border border-slate-200">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="mt-16 bg-slate-50 rounded-2xl p-10 md:p-16 border border-slate-200">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
                     <div>
-                        <h3 class="font-semibold text-slate-900">What We're Building</h3>
-                        <ul class="mt-3 space-y-2 list-disc list-inside text-slate-600">
-                            <li>A growing library of practical use cases</li>
-                            <li>Increased cross-departmental collaboration</li>
-                            <li>Measurable time-savings on administrative tasks</li>
-                            <li>A foundational community for future AI initiatives</li>
+                        <h3 class="text-2xl font-semibold text-slate-900">What We're Building</h3>
+                        <ul class="mt-4 space-y-3 text-lg text-slate-600">
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-6 h-6 text-green-600 mr-3 mt-1 flex-shrink-0"></i>A growing library of practical use cases</li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-6 h-6 text-green-600 mr-3 mt-1 flex-shrink-0"></i>Increased cross-departmental collaboration</li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-6 h-6 text-green-600 mr-3 mt-1 flex-shrink-0"></i>Measurable time-savings on administrative tasks</li>
+                            <li class="flex items-start"><i data-lucide="check-circle-2" class="w-6 h-6 text-green-600 mr-3 mt-1 flex-shrink-0"></i>A foundational community for future AI initiatives</li>
                         </ul>
                     </div>
-                    <div class="border-t md:border-t-0 md:border-l border-slate-200 pt-8 md:pt-0 md:pl-8">
-                        <h3 class="font-semibold text-slate-900">Participant Testimonials</h3>
-                        <div class="mt-3 italic text-slate-500">
+                    <div class="border-t md:border-t-0 md:border-l border-slate-200 pt-10 md:pt-0 md:pl-10">
+                        <h3 class="text-2xl font-semibold text-slate-900">Participant Testimonials</h3>
+                        <div class="mt-4 italic text-slate-500 text-lg">
                             <p>"A space for future testimonials from our members..."</p>
                         </div>
                     </div>
@@ -186,31 +184,25 @@
         </section>
 
         <!-- Leadership Section -->
-        <section id="leadership">
-             <div class="text-center section-header">
-                <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Leadership</h2>
+        <section id="leadership" class="fade-in-section">
+             <div class="text-center">
+                <h2 class="text-4xl md:text-5xl font-bold text-slate-900 tracking-tighter">Leadership</h2>
             </div>
-            <div class="mt-12 bg-white rounded-2xl p-8 md:p-12 border border-slate-200 flex flex-col md:flex-row items-center gap-8">
-                <div class="text-center">
-                    <img src="https://placehold.co/128x128/e2e8f0/64748b?text=SW" alt="Headshot of Sung Woo" class="rounded-full mx-auto">
-                    <h3 class="mt-4 text-xl font-bold text-slate-900">Dr. Sung Woo</h3>
-                    <p class="text-slate-600">Founder & Director, VUIM AI Lab</p>
+            <div class="mt-16 bg-slate-50 rounded-2xl p-10 md:p-16 border border-slate-200 flex flex-col md:flex-row items-center gap-10">
+                <div class="text-center flex-shrink-0">
+                    <img src="https://github.com/Learning-AI-swoo/AI-Lab/blob/main/sw_profile_pic.jpeg?raw=true" alt="Headshot of Sung Woo" class="rounded-full mx-auto w-40 h-40 object-cover">
+                    <h3 class="mt-6 text-2xl font-bold text-slate-900">Dr. Sung Woo</h3>
+                    <p class="text-lg text-slate-600">Founder & Director, VUIM AI Lab</p>
                 </div>
                 <div class="flex-1 text-center md:text-left">
-                     <p class="text-lg text-slate-700">
+                     <p class="text-xl text-slate-700">
                         The VUIM AI Lab was founded and is directed by Dr. Sung Woo. A strategic academic executive with expertise in learning analytics, instructional systems design, and AI integration in higher education, Dr. Woo serves as the Academic Dean and Lead Instructional Designer at VUIM.
                      </p>
-                     <div class="mt-4 flex justify-center md:justify-start items-center space-x-4">
-                        <!-- IMPORTANT: Replace the href="#" with your actual LinkedIn link -->
-                        <a href="https://www.linkedin.com/in/sungwon-woo" target="_blank" class="flex items-center space-x-2 text-indigo-600 hover:underline">
+                     <div class="mt-6 flex justify-center md:justify-start items-center space-x-6">
+                        <a href="https://www.linkedin.com/in/sungwon-woo" target="_blank" class="flex items-center space-x-2 text-indigo-600 hover:underline text-lg">
                             <i data-lucide="linkedin"></i>
                             <span>LinkedIn Profile</span>
                         </a>
-                         <!-- You can add an email link here if you wish -->
-                         <!-- <a href="mailto:learning.ai.swoo@gmail.com" class="flex items-center space-x-2 text-indigo-600 hover:underline">
-                            <i data-lucide="mail"></i>
-                            <span>Email</span>
-                         </a> -->
                      </div>
                 </div>
             </div>
@@ -220,14 +212,35 @@
 
     <!-- Footer -->
     <footer class="bg-slate-100 border-t border-slate-200">
-        <div class="mx-auto max-w-5xl p-4 text-center text-sm text-slate-500">
+        <div class="mx-auto max-w-7xl p-6 text-center text-base text-slate-500">
             <p>&copy; 2025 Sung Woo. This page is a personal portfolio showcasing the VUIM AI Lab initiative.</p>
         </div>
     </footer>
 
     <script>
-        // This script initializes the Lucide icons.
+        // Initialize Lucide icons
         lucide.createIcons();
+
+        // Fade-in animation on scroll
+        const faders = document.querySelectorAll('.fade-in-section');
+        const appearOptions = {
+            threshold: 0.1,
+            rootMargin: "0px 0px -100px 0px"
+        };
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('is-visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
     </script>
 
 </body>
